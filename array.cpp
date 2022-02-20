@@ -55,3 +55,19 @@ void array_int::insertion_sort() {
         theArray[j + 1] = key;
     }
 }
+
+void array_int::selection_sort() {
+    for (int i = 0; i < theSize - 1; ++i) {
+        int minIndex = i;
+        for (int j = i + 1; j < theSize; ++j) {
+            if (theArray[j] < theArray[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            int tmp = theArray[i];
+            theArray[i] = theArray[minIndex];
+            theArray[minIndex] = tmp;
+        }
+    }
+}

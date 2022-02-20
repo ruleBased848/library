@@ -8,6 +8,7 @@ class array_int {
     void push_back(int x);
     int pop_back();
     void insertion_sort();
+    void selection_sort();
 
   private:
     int theSize;
