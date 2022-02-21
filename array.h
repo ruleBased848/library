@@ -9,9 +9,12 @@ class array_int {
     int pop_back();
     void insertion_sort();
     void selection_sort();
+    void merge_sort();
 
   private:
     int theSize;
     int theCapacity;
     int* theArray;
+
+    void merge_sort(int begin, int end);
 };

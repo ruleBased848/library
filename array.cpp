@@ -71,3 +71,24 @@ void array_int::selection_sort() {
         }
     }
 }
+
+void array_int::merge_sort() {
+    merge_sort(0, theSize - 1);
+}
+
+void array_int::merge_sort(int begin, int end) {
+    if (begin >= end) { return; }
+    int mid = (begin + end) / 2;
+    merge_sort(begin, mid);
+    merge_sort(mid + 1, end);
+    array_int tmp {end - begin + 1};
+    int index1 = begin;
+    int index2 = mid + 1;
+    for (int i = 0; i < tmp.size(); ++i) {
+        bool insertFromFirstSubarray = index2 > end || (mid >= index1 && theArray[index1] <= theArray[index2]);
+        tmp[i] = theArray[insertFromFirstSubarray ? index1++ : index2++];
+    }
+    for (int i = 0; i < tmp.size(); ++i) {
+        theArray[begin + i] = tmp[i];
+    }
+}
