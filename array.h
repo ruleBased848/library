@@ -10,6 +10,7 @@ class array_int {
     void insertion_sort();
     void selection_sort();
     void merge_sort();
+    void bubble_sort();
 
   private:
     int theSize;

@@ -92,3 +92,18 @@ void array_int::merge_sort(int begin, int end) {
         theArray[begin + i] = tmp[i];
     }
 }
+
+void array_int::bubble_sort() {
+    for (int i = 0; i < theSize - 1;) {
+        int next = theSize - 1;
+        for (int j = theSize - 1; j > i; --j) {
+            if (theArray[j] < theArray[j - 1]) {
+                int tmp = theArray[j];
+                theArray[j] = theArray[j - 1];
+                theArray[j - 1] = tmp;
+                next = j;
+            }
+        }
+        i = next;
+    }
+}
