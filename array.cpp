@@ -107,3 +107,21 @@ void array_int::bubble_sort() {
         i = next;
     }
 }
+
+void array_int::make_max_heap() {
+    for (int i = theSize / 2 - 1; i >= 0; --i) {
+        int key = theArray[i];
+        int j = i;
+        while (true) {
+            int l = 2 * j + 1;
+            int r = 2 * j + 2;
+            if (l >= theSize || (theArray[l] <= key && (r >= theSize || theArray[r] <= key))) {
+                theArray[j] = key;
+                break;
+            }
+            int larger = r < theSize && theArray[r] > theArray[l] ? r : l;
+            theArray[j] = theArray[larger];
+            j = larger;
+        }
+    }
+}
