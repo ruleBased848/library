@@ -19,4 +19,5 @@ class array_int {
     int* theArray;
 
     void merge_sort(int begin, int end);
+    void max_heapify_downward(int heapSize, int begin);
 };
