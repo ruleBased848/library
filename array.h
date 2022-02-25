@@ -12,6 +12,7 @@ class array_int {
     void merge_sort();
     void bubble_sort();
     void make_max_heap();
+    void heapsort();
 
   private:
     int theSize;

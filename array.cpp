@@ -127,3 +127,13 @@ void array_int::max_heapify_downward(int heapSize, int begin) {
 void array_int::make_max_heap() {
     for (int i = theSize / 2 - 1; i >= 0; --i) { max_heapify_downward(theSize, i); }
 }
+
+void array_int::heapsort() {
+    make_max_heap();
+    for (int i = theSize - 1; i > 0; --i) {
+        int max = theArray[0];
+        theArray[0] = theArray[i];
+        theArray[i] = max;
+        max_heapify_downward(i, 0);
+    }
+}
