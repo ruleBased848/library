@@ -13,6 +13,7 @@ class array_int {
     void bubble_sort();
     void make_max_heap();
     void heapsort();
+    int pop_max_heap();
 
   private:
     int theSize;

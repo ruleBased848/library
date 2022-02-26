@@ -137,3 +137,11 @@ void array_int::heapsort() {
         max_heapify_downward(i, 0);
     }
 }
+
+int array_int::pop_max_heap() {
+    if (theSize == 0) { throw std::logic_error {""}; }
+    int max = theArray[0];
+    theArray[0] = theArray[--theSize];
+    max_heapify_downward(theSize, 0);
+    return max;
+}
