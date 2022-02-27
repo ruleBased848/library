@@ -124,6 +124,17 @@ void array_int::max_heapify_downward(int heapSize, int begin) {
     }
 }
 
+void array_int::max_heapify_upward(int begin) {
+    int key = theArray[begin];
+    while (begin > 0) {
+        int p = (begin - 1) / 2;
+        if (theArray[p] >= key) { break; }
+        theArray[begin] = theArray[p];
+        begin = p;
+    }
+    theArray[begin] = key;
+}
+
 void array_int::make_max_heap() {
     for (int i = theSize / 2 - 1; i >= 0; --i) { max_heapify_downward(theSize, i); }
 }
@@ -144,4 +155,9 @@ int array_int::pop_max_heap() {
     theArray[0] = theArray[--theSize];
     max_heapify_downward(theSize, 0);
     return max;
+}
+
+void array_int::push_max_heap(int x) {
+    push_back(x);
+    max_heapify_upward(theSize - 1);
 }

@@ -14,6 +14,7 @@ class array_int {
     void make_max_heap();
     void heapsort();
     int pop_max_heap();
+    void push_max_heap(int x);
 
   private:
     int theSize;
@@ -22,4 +23,5 @@ class array_int {
 
     void merge_sort(int begin, int end);
     void max_heapify_downward(int heapSize, int begin);
+    void max_heapify_upward(int begin);
 };
