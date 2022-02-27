@@ -110,18 +110,15 @@ void array_int::bubble_sort() {
 
 void array_int::max_heapify_downward(int heapSize, int begin) {
     int key = theArray[begin];
-    int i = begin;
     while (true) {
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-        if (l >= heapSize || (theArray[l] <= key && (r >= heapSize || theArray[r] <= key))) {
-            theArray[i] = key;
-            return;
-        }
+        int l = 2 * begin + 1;
+        int r = l + 1;
+        if (l >= heapSize || (theArray[l] <= key && (r >= heapSize || theArray[r] <= key))) { break; }
         int larger = r < heapSize && theArray[r] > theArray[l] ? r : l;
-        theArray[i] = theArray[larger];
-        i = larger;
+        theArray[begin] = theArray[larger];
+        begin = larger;
     }
+    theArray[begin] = key;
 }
 
 void array_int::max_heapify_upward(int begin) {
